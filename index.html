@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+/* runs test to see if expected argument is === to value returned by function2test argument */
+function myFunctionTest(expected, found) {
+  if (expected === found) {
+    return "TEST SUCCEEDED";
+  } else {
+    return "TEST FAILED.  Expected " + expected + " found " + found;
+  }
+}
+
+/* max returns the maximum of 2 arguments */
+function max(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  };
+}
+console.log("Expected output of max(20,10) is 20  " + myFunctionTest(20, max(20, 10)));
+
+/* max3 takes 3 numbers as arguments and returns the largest */
+function maxOfThree(a, b, c) {
+  return max(max(a, b), c);
+
+}
+
+
+
+/* a function isVowel() that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise*/
+function isVowel(char) {
+  if (char.length == 1) {
+    var vowels = new Array("a", "e", "i", "o", "u");
+    var isVowel = false;
+
+    for (e in vowels) {
+      if (vowels[e] == char) {
+        isVowel = true;
+      }
+    }
+
+    return isVowel;
+  }
+}
+
+
+/* a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.*/
+
+function sum(array){
+    sum=0;
+	for(index=0; index<array.length; index++){
+	sum=sum+array[index];
+	}
+	return sum;
+}
+
+function multiply(array){
+    mul=1;
+	for(index=0; index<array.length; index++){
+	mul=mul * array[index];
+	}
+	return mul;
+}
+
+/* Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".*/
+
+function reverse(str){
+  let reversed = "";    
+  for (var i = str.length - 1; i >= 0; i--){        
+    reversed += str[i];
+  }    
+  return reversed;
+}
+
+/*Write a function findLongestWord() that takes an array of words and returns the length of the longest one.*/
+
+
+function findLongestWord(string) {
+    var str = string.split(" ");
+    var longest = 0;
+    var word = null;
+    for (var i = 0; i < str.length; i++) {
+        if (longest < str[i].length) {
+            longest = str[i].length;
+            word = str[i];
+        }
+    }
+    return word.length;
+}
+
+/* Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.*/
+function filterLongWords(array, sizelimit){
+   var str = array.split(" ");
+   var word = "";
+   for (var i = 0; i < str.length; i++) {
+   	if(str[i].length>sizelimit){
+	  	word=word+str[i]+" ";
+	  }
+   }
+   return word;
+}
+
+console.log("Expected output of maxOfThree(5,4,44) is 44  " + myFunctionTest(44, maxOfThree(5, 4, 44)));
+console.log("Expected output of maxOfThree(55,4,44) is 55  " + myFunctionTest(55, maxOfThree(55, 4, 44)));
+console.log("Expected output of maxOfThree(55,4,44) is 55  " + myFunctionTest(4, maxOfThree(55, 4, 44)));
+
+
+console.log("Expected output of isVowel(a) is TRUE  " + myFunctionTest(true, isVowel("a")));
+
+
+console.log("Expected output of sum([1,2,3,4,5]) is 15  " + myFunctionTest(15, sum([1,2,3,4,5])));
+
+console.log("Expected output of multiply([1,2,3,4,5]) is 120  " + myFunctionTest(120, multiply([1,2,3,4,5])));
+
+
+console.log("Expected output of reverse(Amare Anagaw) is Anagaw Amare  " + myFunctionTest("waganA eramA", reverse("Amare Anagaw")));
+
+
+console.log("Expected output of findLongestWord(Amare Anagaw) is 6 " + myFunctionTest(6, findLongestWord("Amare Anagaw")));
+
+
+console.log("Expected output of filterLongWords(My Name Is Amare Anagaw Ayele) is Amare Anagaw Ayele " + myFunctionTest("Amare Anagaw Ayele ", filterLongWords("My Name Is Amare Anagaw Ayele",4)));
+
+
+/*multiply each element by 10; */
+var array = [1, 2, 3, 4, 5];
+
+var result = array.map(function(a, b,array2) {
+  return a * 10;
+});
+ console.log(result);
+/* return array with all elements equal to 3; */
+
+var result = array.filter(function(a, b,array2) {
+  return a ==3;
+});
+ console.log(result);
+/* return the product of all elements;*/
+    
+    // Getting multiple of numbers
+    var mul = array.reduce(function(a, b){
+        return a * b;
+    }, 1);
+    
+    console.log(mul); // Prints: 120
+    </script>
+</head>
+<body>
+
+Look in the Chrome developer console to see the output. CTRL_SHIFT_J <br />
+Or on Firefox with CTRL_SHIFT_K
+
+</body>
+</html>
